@@ -25,7 +25,7 @@
     },
     {
         "ParameterKey": "LinuxBastionKeyPairName",
-        "ParameterValue": "VargaUSEast"
+        "ParameterValue": "myKeyForBastion"
     },
     {
         "ParameterKey": "NotificationTrigger",
@@ -61,7 +61,7 @@
     },
     {
         "ParameterKey": "OOKeyPairName",
-        "ParameterValue": "VargaUSEast"
+        "ParameterValue": "myKeyForOO"
     },
     {
         "ParameterKey": "OOSSHAccessSGID",

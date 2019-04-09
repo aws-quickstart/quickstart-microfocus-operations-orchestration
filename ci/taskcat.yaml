@@ -5,10 +5,10 @@ global:
   regions:
     - us-east-1
 #    - us-east-2
-#      reporting: true
-#
-#      tests:
-#        oo-in-new-vpc:
-#            parameter_input: microfocus-oo-master-template-params.json
-#                template_file: microfocus-oo-master-template.json
-#
+  reporting: true
+
+tests:
+  oo-in-new-vpc:
+    parameter_input: microfocus-oo-master-template-params.json
+    template_file: microfocus-oo-master-template.json
+
