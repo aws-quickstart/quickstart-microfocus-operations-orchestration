@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This workload template deploys an OO Central cluster, an OO Workflow Designer instance and an AWS RDS Postgresql database instance **WARNING** This template creates EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template.(qs-1pg0022na)",
+    "Description": "This workload template deploys an OO Central cluster, an OO Workflow Designer instance and an AWS RDS Postgresql database instance **WARNING** This template creates EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [
@@ -334,7 +334,7 @@
                 "internet-facing"
             ],
             "ConstraintDescription": "The Load Balancer scheme must be either 'internet-facing' or 'internal'",
-            "Default": "internal",
+            "Default": "internet-facing",
             "Description": "Choose the Load Balancer's exposure: internet-facing or internal",
             "Type": "String"
         },
@@ -896,6 +896,16 @@
                 "true"
             ]
         },
+        "DesignerIPToELBSecGroup": {
+            "Fn::And": [
+                {
+                    "Condition": "ALBSchemeType"
+                },
+                {
+                    "Condition": "CreateDesigner"
+                }
+            ]
+        },
         "NotificationTopicCondition": {
             "Fn::Equals": [
                 {
@@ -1092,18 +1102,19 @@
         "ELBSecurityGroupIngressOOInstances": {
             "Type": "AWS::EC2::SecurityGroupIngress",
             "Properties":{
+                "Description": "OO instances access to ELB",
                 "IpProtocol": "tcp",
                 "FromPort": 443,
                 "ToPort": 443,
-                "SourceSecurityGroupId": {
-                    "Fn::GetAtt": [
-                        "OOInstancesSecurityGroup",
-                        "GroupId"
-                    ]
-                },
                 "GroupId": {
                     "Fn::GetAtt": [
                         "ELBSecurityGroup",
+                        "GroupId"
+                    ]
+                },
+                "SourceSecurityGroupId": {
+                    "Fn::GetAtt": [
+                        "OOInstancesSecurityGroup",
                         "GroupId"
                     ]
                 }
@@ -1112,6 +1123,7 @@
         "ELBSecurityGroupIngressUserDefined": {
             "Type": "AWS::EC2::SecurityGroupIngress",
             "Properties":{
+                "Description": "ELB Access from user defined CIDR",
                 "IpProtocol": "tcp",
                 "FromPort": 443,
                 "ToPort": 443,
@@ -1125,6 +1137,25 @@
                     ]
                 }
             }
+        },
+        "ELBSecurityGroupIngressForDesigner": {
+            "Type": "AWS::EC2::SecurityGroupIngress",
+            "Properties":{
+                "Description": "ELB Access from internet-facing OO Workflow Designer instance",
+                "IpProtocol": "tcp",
+                "FromPort": 443,
+                "ToPort": 443,
+                "CidrIp": {
+                    "Fn::Sub": "${OODesignerInstance.PublicIp}/32"
+                },
+                "GroupId": {
+                    "Fn::GetAtt": [
+                        "ELBSecurityGroup",
+                        "GroupId"
+                    ]
+                }
+            },
+            "Condition": "DesignerIPToELBSecGroup"
         },
         "ElasticLoadBalancerV2": {
             "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
@@ -1368,8 +1399,16 @@
                             }
                         },
                         "commands": {
-                            "startcentral": {
+                            "startooconfig": {
                                 "command": "/etc/init.d/oo start",
+                                "ignoreErrors": "false"
+                            },
+                            "addservice": {
+                                "command": "chkconfig --add oo",
+                                "ignoreErrors": "false"
+                            },
+                            "enableservice": {
+                                "command": "chkconfig oo on",
                                 "ignoreErrors": "false"
                             }
                         }
@@ -1747,7 +1786,15 @@
                     ]
                 },
                 "SubnetId": {
-                    "Ref": "PrivateSubnet1ID"
+                    "Fn::If": [
+                        "ALBSchemeType",
+                        {
+                            "Ref": "PublicSubnet1ID"
+                        },
+                        {
+                            "Ref": "PrivateSubnet1ID"
+                        }
+                    ]
                 },
                 "Tags": [
                     {
@@ -1779,6 +1826,14 @@
                                                 "Fn::GetAtt": [
                                                     "DBInstance",
                                                     "Endpoint.Address"
+                                                ]
+                                            },
+                                            "\n",
+                                            "elb.sg-id=",
+                                            {
+                                                "Fn::GetAtt": [
+                                                    "ELBSecurityGroup",
+                                                    "GroupId"
                                                 ]
                                             },
                                             "\n",
@@ -1819,6 +1874,26 @@
                                             {
                                                 "Ref": "OODesignerRootPass"
                                             },
+                                            "\n",
+                                            "bucket.name=",
+                                            {
+                                                "Ref": "QSS3BucketNameForCluster"
+                                            },
+                                            "\n",
+                                            "bucket.prefix=",
+                                            {
+                                                "Ref": "QSS3KeyPrefixForCluster"
+                                            },
+                                            "\n",
+                                            "stack.name=",
+                                            {
+                                                "Ref": "AWS::StackName"
+                                            },
+                                            "\n",
+                                            "stack.id=",
+                                            {
+                                                "Ref": "AWS::StackId"
+                                            },
                                             "\n"
                                         ]
                                     ]
@@ -1829,8 +1904,16 @@
                             }
                         },
                         "commands": {
-                            "startdesigner": {
+                            "startooconfig": {
                                 "command": "/etc/init.d/oo start",
+                                "ignoreErrors": "false"
+                            },
+                            "addservice": {
+                                "command": "chkconfig --add oo",
+                                "ignoreErrors": "false"
+                            },
+                            "enableservice": {
+                                "command": "chkconfig oo on",
                                 "ignoreErrors": "false"
                             }
                         }
@@ -2037,6 +2120,75 @@
             "DependsOn": [
                 "OOCentralAutoScalingGroup"
             ],
+            "Condition": "CreateDesigner"
+        },
+        "OODesignerInstanceRecovery": {
+            "Type": "AWS::CloudWatch::Alarm",
+            "Properties": {
+                "AlarmDescription": "Trigger a recovery when the OO Workflow Designer instance status check fails for 15 consecutive minutes.",
+                "Namespace": "AWS/EC2" ,
+                "MetricName": "StatusCheckFailed_System",
+                "Statistic": "Minimum",
+                "Period": 60,
+                "EvaluationPeriods": 15,
+                "ComparisonOperator": "GreaterThanThreshold",
+                "Threshold": 0,
+                "AlarmActions": {
+                    "Fn::If": [
+                        "NotificationTopicCondition",
+                        [
+                            {
+                                "Fn::Join": [
+                                    "", [
+                                        "arn:aws:automate:", {
+                                            "Ref": "AWS::Region"
+                                        },
+                                        ":ec2:recover"
+                                    ]
+                                ]
+                            },
+                            {
+                                "Ref": "NotificationTopic"
+                            }
+                        ],
+                        [
+                            {
+                                "Fn::Join": [
+                                    "", [
+                                        "arn:aws:automate:", {
+                                            "Ref": "AWS::Region"
+                                        },
+                                        ":ec2:recover"
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                },
+                "Dimensions": [
+                    {
+                        "Name": "InstanceId",
+                        "Value": {
+                            "Ref": "OODesignerInstance"
+                        }
+                    }
+                ],
+                "OKActions": {
+                    "Fn::If": [
+                        "NotificationTopicCondition",
+                        [
+                            {
+                                "Ref": "NotificationTopic"
+                            }
+                        ],
+                        [
+                            {
+                                "Ref": "AWS::NoValue"
+                            }
+                        ]
+                    ]
+                }
+            },
             "Condition": "CreateDesigner"
         },
         "OODesignerLaunchTemplate": {
@@ -2395,7 +2547,7 @@
                                 }
                             ]
                         },
-                        "PolicyName": "s3-cluster-policy"
+                        "PolicyName": "oo-s3-cluster-policy"
                     },
                     {
                         "PolicyDocument": {
@@ -2417,7 +2569,7 @@
                                 }
                             ]
                         },
-                        "PolicyName": "certificate-manager-policy"
+                        "PolicyName": "oo-certificate-manager-policy"
                     },
                     {
                         "PolicyDocument": {
@@ -2443,7 +2595,32 @@
                                 }
                             ]
                         },
-                        "PolicyName": "elb-modify-elb-listener-policy"
+                        "PolicyName": "oo-elb-modify-elb-listener-policy"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "ec2:AuthorizeSecurityGroupIngress",
+                                        "ec2:RevokeSecurityGroupIngress"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": {
+                                        "Fn::Sub": "arn:${AWS::Partition}:ec2:${AWS::Region}:*:security-group/${ELBSecurityGroup.GroupId}"
+                                    }
+                                },
+                                {
+                                    "Action": [
+                                        "ec2:DescribeSecurityGroups"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ]
+                        },
+                        "PolicyName": "oo-describe-authorize-revoke-elb-sg-ingress-rules"
                     }
                 ]
             },
@@ -2456,13 +2633,69 @@
                 "AMZLNX1Central": "Amazon Linux 1 HVM with OO Central",
                 "AMZLNX1Designer": "Amazon Linux 1 HVM with OO Workflow Designer"
             },
+            "ap-northeast-1": {
+                "AMZLNX1Central": "ami-0fb9d2d56ebad406c",
+                "AMZLNX1Designer": "ami-085aa68e9a93d6ba4"
+            },
+            "ap-northeast-2": {
+                "AMZLNX1Central": "ami-0ac77b6022f81cef5",
+                "AMZLNX1Designer": "ami-0c6b846aee807fdf5"
+            },
+            "ap-south-1": {
+                "AMZLNX1Central": "ami-0feae41b8c06008ff",
+                "AMZLNX1Designer": "ami-0b39c59109b400350"
+            },
+            "ap-southeast-1": {
+                "AMZLNX1Central": "ami-0ab2192ebfe174855",
+                "AMZLNX1Designer": "ami-0e00bb66b5fa3fac0"
+            },
+            "ap-southeast-2": {
+                "AMZLNX1Central": "ami-0f4a112d08bcbac96",
+                "AMZLNX1Designer": "ami-0f0b8a99b7a65211b"
+            },
+            "ca-central-1": {
+                "AMZLNX1Central": "ami-00459709389033b6e",
+                "AMZLNX1Designer": "ami-05c2108f8684b40cd"
+            },
+            "eu-central-1": {
+                "AMZLNX1Central": "ami-0daa60ace085a1dad",
+                "AMZLNX1Designer": "ami-0b981ee6a5ef7aad0"
+            },
+            "eu-north-1": {
+                "AMZLNX1Central": "ami-091d88d50d3e906e6",
+                "AMZLNX1Designer": "ami-06f420f7f10d1c36e"
+            },
+            "eu-west-1": {
+                "AMZLNX1Central": "ami-0917f1ef553bdc896",
+                "AMZLNX1Designer": "ami-01fe36bd6fb64b2ef"
+            },
+            "eu-west-2": {
+                "AMZLNX1Central": "ami-01d7c14f3fce5d083",
+                "AMZLNX1Designer": "ami-03f006ca6ea00a85e"
+            },
+            "eu-west-3": {
+                "AMZLNX1Central": "ami-05cc9071296e274cd",
+                "AMZLNX1Designer": "ami-0fa6118f59c9f7ae6"
+            },
+            "sa-east-1": {
+                "AMZLNX1Central": "ami-064bcfe1ef266cddd",
+                "AMZLNX1Designer": "ami-08fa5571d36e4b47d"
+            },
             "us-east-1": {
-                "AMZLNX1Central": "ami-0babd12c7e2528e01",
-                "AMZLNX1Designer": "ami-0d500625b9a7032e3"
+                "AMZLNX1Central": "ami-03eb2f20703cc8ac0",
+                "AMZLNX1Designer": "ami-0adf9cd48df80c022"
             },
             "us-east-2": {
-                "AMZLNX1Central": "ami-0774644177e0571a5",
-                "AMZLNX1Designer": "ami-04191fa6e33274138"
+                "AMZLNX1Central": "ami-0337cfcbdd11a3d5e",
+                "AMZLNX1Designer": "ami-01a4209a966a577fc"
+            },
+            "us-west-1": {
+                "AMZLNX1Central": "ami-05ae9ef6d497d70cd",
+                "AMZLNX1Designer": "ami-09752bfb74c8d4c19"
+            },
+            "us-west-2": {
+                "AMZLNX1Central": "ami-0487298b4f48e8991",
+                "AMZLNX1Designer": "ami-080dbadead87f020d"
             }
         }
     },
@@ -2505,7 +2738,7 @@
             "Condition": "CreateDesigner"
         },
         "IDMAdmin": {
-            "Description": "OO Workflow Designer Identity Management",
+            "Description": "OO Workflow Designer Identity Management Server",
             "Value": {
                 "Fn::Join": [
                     "",
