@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This master template creates a VPC infrastructure for a multi-AZ, multi-tier deployment of OO on AWS. It deploys a VPC with bastion hosts, an OO Central cluster, a OO Web Designer instance and an AWS Relational Database instance. **WARNING** This template creates EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "This master template creates a VPC infrastructure for a multi-AZ, multi-tier deployment of OO on AWS. It deploys a VPC with bastion hosts, an OO Central cluster, a OO Web Designer instance and an AWS Relational Database instance. **WARNING** This template creates EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template. (qs-1pg0022k8)",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [
