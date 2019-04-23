@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "This workload template deploys an OO Central cluster, an OO Workflow Designer instance and an AWS RDS Postgresql database instance **WARNING** This template creates EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "This workload template deploys an OO Central cluster, an OO Workflow Designer instance and an AWS RDS Postgresql database instance **WARNING** This template creates EC2 instances and related resources. You will be billed for the AWS resources used if you create a stack from this template. (qs-1pg0022na)",
     "Metadata": {
         "AWS::CloudFormation::Interface": {
             "ParameterGroups": [
