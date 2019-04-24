@@ -1,135 +1,134 @@
 [
-    {
-        "ParameterKey": "DBMasterPassword",
-        "ParameterValue": "$[taskcat_genpass_10S]"
-    },
-    {
-        "ParameterKey": "DBMasterPasswordConfirm",
-        "ParameterValue": "$[taskcat_getval_DBMasterPassword]"
-    },
-    {
-        "ParameterKey": "DBMasterUsername",
-        "ParameterValue": "oodbadmin"
-    },
-    {
-        "ParameterKey": "ELBScheme",
-        "ParameterValue": "internal"
-    },
-    {
-        "ParameterKey": "ELBAccessCIDR",
-        "ParameterValue": "0.0.0.0/0"
-    },
-    {
-        "ParameterKey": "LicenseAgreement",
-        "ParameterValue": "I agree"
-    },
-    {
-        "ParameterKey": "NotificationTrigger",
-        "ParameterValue": "false"
-    },
-    {
-        "ParameterKey": "OOCentralDBName",
-        "ParameterValue": "$[taskcat_genpass_8A]"
-    },
-    {
-        "ParameterKey": "OOCentralNodesSize",
-        "ParameterValue": "2"
-    },
-    {
-        "ParameterKey": "OOCentralOOPass",
-        "ParameterValue": "$[taskcat_genpass_15S]"
-    },
-    {
-        "ParameterKey": "OOCentralOOPassConfirm",
-        "ParameterValue": "$[taskcat_getval_OOCentralOOPass]"
-    },
-    {
-        "ParameterKey": "OOCentralPass",
-        "ParameterValue": "$[taskcat_genpass_15S]"
-    },
-    {
-        "ParameterKey": "OOCentralPassConfirm",
-        "ParameterValue": "$[taskcat_getval_OOCentralPass]"
-    },
-    {
-        "ParameterKey": "OOCentralRootPass",
-        "ParameterValue": "$[taskcat_genpass_16S]"
-    },
-    {
-        "ParameterKey": "OOCentralRootPassConfirm",
-        "ParameterValue": "$[taskcat_getval_OOCentralRootPass]"
-    },
-    {
-        "ParameterKey": "OODesignerDBName",
-        "ParameterValue": "$[taskcat_genpass_9A]"
-    },
-    {
-        "ParameterKey": "OODesignerOOPass",
-        "ParameterValue": "$[taskcat_genpass_16S]"
-    },
-    {
-        "ParameterKey": "OODesignerOOPassConfirm",
-        "ParameterValue": "$[taskcat_getval_OODesignerOOPass]"
-    },
-    {
-        "ParameterKey": "OODesignerPass",
-        "ParameterValue": "$[taskcat_genpass_16S]"
-    },
-    {
-        "ParameterKey": "OODesignerPassConfirm",
-        "ParameterValue": "$[taskcat_getval_OODesignerPass]"
-    },
-    {
-        "ParameterKey": "OODesignerRootPass",
-        "ParameterValue": "$[taskcat_genpass_15S]"
-    },
-    {
-        "ParameterKey": "OODesignerRootPassConfirm",
-        "ParameterValue": "$[taskcat_getval_OODesignerRootPass]"
-    },
-    {
-        "ParameterKey": "OODesignerTrigger",
-        "ParameterValue": "true"
-    },
-    {
-        "ParameterKey": "OOKeyPairName",
-        "ParameterValue": "myKey"
-    },
-    {
-        "ParameterKey": "OperatorEmail",
-        "ParameterValue": "someone@something.com"
-    },
-    {
-        "ParameterKey": "OOSSHAccessSGID",
-        "ParameterValue": "mySGIDForSSHAccessToOOInstances"
-    },
-    {
-        "ParameterKey": "PrivateSubnet1ID",
-        "ParameterValue": "myPrivateSubnet1ID"
-    },
-    {
-        "ParameterKey": "PrivateSubnet2ID",
-        "ParameterValue": "myPrivateSubnet2ID"
-    },
-    {
-        "ParameterKey": "PublicSubnet1ID",
-        "ParameterValue": "myPublicSubnet1ID"
-    },
-    {
-        "ParameterKey": "PublicSubnet2ID",
-        "ParameterValue": "myPublicSubnet2ID"
-    },
-    {
-        "ParameterKey": "QSS3BucketNameForCluster",
-        "ParameterValue": "$[taskcat_autobucket]"
-    },
-    {
-        "ParameterKey": "QSS3KeyPrefixForCluster",
-        "ParameterValue": "quickstart-microfocus-operations-orchestration/"
-    },
-    {
-        "ParameterKey": "VPCID",
-        "ParameterValue": "myVPCID"
-    }
+  {
+    "ParameterKey": "DBMasterPassword",
+    "ParameterValue": "$[taskcat_genpass_10S]"
+  },
+  {
+    "ParameterKey": "DBMasterPasswordConfirm",
+    "ParameterValue": "$[taskcat_getval_DBMasterPassword]"
+  },
+  {
+    "ParameterKey": "DBMasterUsername",
+    "ParameterValue": "oodbadmin"
+  },
+  {
+    "ParameterKey": "ELBScheme",
+    "ParameterValue": "internal"
+  },
+  {
+    "ParameterKey": "ELBAccessCIDR",
+    "ParameterValue": "0.0.0.0/0"
+  },
+  {
+    "ParameterKey": "LicenseAgreement",
+    "ParameterValue": "I agree"
+  },
+  {
+    "ParameterKey": "NotificationTrigger",
+    "ParameterValue": "false"
+  },
+  {
+    "ParameterKey": "OOCentralDBName",
+    "ParameterValue": "$[taskcat_genpass_8A]"
+  },
+  {
+    "ParameterKey": "OOCentralNodesSize",
+    "ParameterValue": "2"
+  },
+  {
+    "ParameterKey": "OOCentralOOPass",
+    "ParameterValue": "$[taskcat_genpass_15S]"
+  },
+  {
+    "ParameterKey": "OOCentralOOPassConfirm",
+    "ParameterValue": "$[taskcat_getval_OOCentralOOPass]"
+  },
+  {
+    "ParameterKey": "OOCentralPass",
+    "ParameterValue": "$[taskcat_genpass_15S]"
+  },
+  {
+    "ParameterKey": "OOCentralPassConfirm",
+    "ParameterValue": "$[taskcat_getval_OOCentralPass]"
+  },
+  {
+    "ParameterKey": "OOCentralRootPass",
+    "ParameterValue": "$[taskcat_genpass_16S]"
+  },
+  {
+    "ParameterKey": "OOCentralRootPassConfirm",
+    "ParameterValue": "$[taskcat_getval_OOCentralRootPass]"
+  },
+  {
+    "ParameterKey": "OODesignerDBName",
+    "ParameterValue": "$[taskcat_genpass_9A]"
+  },
+  {
+    "ParameterKey": "OODesignerOOPass",
+    "ParameterValue": "$[taskcat_genpass_16S]"
+  },
+  {
+    "ParameterKey": "OODesignerOOPassConfirm",
+    "ParameterValue": "$[taskcat_getval_OODesignerOOPass]"
+  },
+  {
+    "ParameterKey": "OODesignerPass",
+    "ParameterValue": "$[taskcat_genpass_16S]"
+  },
+  {
+    "ParameterKey": "OODesignerPassConfirm",
+    "ParameterValue": "$[taskcat_getval_OODesignerPass]"
+  },
+  {
+    "ParameterKey": "OODesignerRootPass",
+    "ParameterValue": "$[taskcat_genpass_15S]"
+  },
+  {
+    "ParameterKey": "OODesignerRootPassConfirm",
+    "ParameterValue": "$[taskcat_getval_OODesignerRootPass]"
+  },
+  {
+    "ParameterKey": "OODesignerTrigger",
+    "ParameterValue": "true"
+  },
+  {
+    "ParameterKey": "OOKeyPairName",
+    "ParameterValue": "myKey"
+  },
+  {
+    "ParameterKey": "OperatorEmail",
+    "ParameterValue": "someone@something.com"
+  },
+  {
+    "ParameterKey": "OOSSHAccessSGID",
+    "ParameterValue": "mySGIDForSSHAccessToOOInstances"
+  },
+  {
+    "ParameterKey": "PrivateSubnet1ID",
+    "ParameterValue": "myPrivateSubnet1ID"
+  },
+  {
+    "ParameterKey": "PrivateSubnet2ID",
+    "ParameterValue": "myPrivateSubnet2ID"
+  },
+  {
+    "ParameterKey": "PublicSubnet1ID",
+    "ParameterValue": "myPublicSubnet1ID"
+  },
+  {
+    "ParameterKey": "PublicSubnet2ID",
+    "ParameterValue": "myPublicSubnet2ID"
+  },
+  {
+    "ParameterKey": "S3BucketNameForCluster",
+    "ParameterValue": "$[taskcat_autobucket]"
+  },
+  {
+    "ParameterKey": "S3KeyPrefixForCluster",
+    "ParameterValue": "quickstart-microfocus-operations-orchestration/"
+  },
+  {
+    "ParameterKey": "VPCID",
+    "ParameterValue": "myVPCID"
+  }
 ]
-
