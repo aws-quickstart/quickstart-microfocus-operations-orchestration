@@ -8,7 +8,9 @@
           "Label": {
             "default": "License agreement"
           },
-          "Parameters": ["LicenseAgreement"]
+          "Parameters": [
+            "LicenseAgreement"
+          ]
         },
         {
           "Label": {
@@ -16,11 +18,11 @@
           },
           "Parameters": [
             "AvailabilityZones",
+            "VPCCIDR",
             "PrivateSubnet1CIDR",
             "PrivateSubnet2CIDR",
             "PublicSubnet1CIDR",
-            "PublicSubnet2CIDR",
-            "VPCCIDR"
+            "PublicSubnet2CIDR"
           ]
         },
         {
@@ -37,7 +39,10 @@
           "Label": {
             "default": "Load Balancer Configuration"
           },
-          "Parameters": ["ELBScheme", "ELBAccessCIDR"]
+          "Parameters": [
+            "ELBScheme",
+            "ELBAccessCIDR"
+          ]
         },
         {
           "Label": {
@@ -61,7 +66,9 @@
           "Label": {
             "default": "OO EC2 Instances Configuration"
           },
-          "Parameters": ["OOKeyPairName"]
+          "Parameters": [
+            "OOKeyPairName"
+          ]
         },
         {
           "Label": {
@@ -86,7 +93,7 @@
         },
         {
           "Label": {
-            "default": "OO Workflow Designer Configuration"
+            "default": "OO Workflow Designer Instance Configuration"
           },
           "Parameters": [
             "OODesignerTrigger",
@@ -104,126 +111,132 @@
           "Label": {
             "default": "AWS Quick Start Configuration"
           },
-          "Parameters": ["QSS3BucketName", "QSS3KeyPrefix"]
+          "Parameters": [
+            "QSS3BucketName",
+            "QSS3KeyPrefix"
+          ]
         }
       ],
       "ParameterLabels": {
         "AvailabilityZones": {
           "default": "Availability Zones"
         },
+        "BastionAccessCIDR": {
+          "default": "Allowed Bastion external access CIDR"
+        },
         "BastionInstanceType": {
-          "default": "Bastion Instance Type"
-        },
-        "OOCentralDBName": {
-          "default": "OO Central's DB name"
-        },
-        "OOCentralInstanceType": {
-          "default": "Central Instance Type"
-        },
-        "OOCentralNodesSize": {
-          "default": "Central Nodes in cluster"
-        },
-        "OOCentralT2T3Burst": {
-          "default": "T2/T3 Burst Mode"
+          "default": "Bastion instance type"
         },
         "CWCentralMonitoring": {
-          "default": "Cloud Watch Monitoring"
+          "default": "OO Central CloudWatch monitoring"
         },
         "CWDesignerMonitoring": {
-          "default": "Cloud Watch Monitoring"
+          "default": "OO Designer CloudWatch monitoring"
         },
         "DBBackupRetentionPeriod": {
-          "default": "DB Backup Retention"
+          "default": "Database backup retention"
         },
         "DBInstanceType": {
-          "default": "Database Instance Type"
+          "default": "Database instance type"
         },
         "DBMasterPassword": {
-          "default": "Database Password"
+          "default": "Database 'master' user password"
         },
         "DBMasterPasswordConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm database 'master' user password"
         },
         "DBMasterUsername": {
-          "default": "Database Master User"
+          "default": "Database 'master' user"
         },
         "DBMultiAZ": {
           "default": "Deploy in Multi-AZ"
         },
         "DBPreferredBackupWindow": {
-          "default": "DB Backup Window"
+          "default": "Database backup window"
         },
         "DBPreferredMaintenanceWindow": {
-          "default": "DB Maintenance Window"
+          "default": "Database maintenance window"
         },
         "DBStorageInGB": {
-          "default": "Database Storage"
-        },
-        "OODesignerDBName": {
-          "default": "OO Designer's DB name"
-        },
-        "OODesignerInstanceType": {
-          "default": "Designer Instance Type"
+          "default": "Database storage"
         },
         "ELBAccessCIDR": {
-          "default": "Load Balancer Access CIDR"
+          "default": "Load balancer access CIDR"
         },
         "ELBScheme": {
-          "default": "Load Balancer Scheme"
+          "default": "Load balancer scheme"
         },
         "LicenseAgreement": {
           "default": "License agreement"
         },
         "LinuxBastionKeyPairName": {
-          "default": "Key Pair Name"
+          "default": "Key pair name"
         },
         "NotificationTrigger": {
-          "default": "E-mail Notifications"
+          "default": "E-mail notifications"
+        },
+        "OOCentralDBName": {
+          "default": "OO Central database name"
+        },
+        "OOCentralInstanceType": {
+          "default": "OO Central instance type"
+        },
+        "OOCentralNodesSize": {
+          "default": "OO Central nodes in cluster"
         },
         "OOCentralOOPass": {
-          "default": "Linux 'oo' User Password"
+          "default": "Linux 'oo' user password"
         },
         "OOCentralOOPassConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm Linux 'oo' user password"
         },
         "OOCentralPass": {
-          "default": "Central Admin Password"
+          "default": "OO Central 'admin' password"
         },
         "OOCentralPassConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm OO Central 'admin' password"
         },
         "OOCentralRootPass": {
           "default": "Linux 'root' password"
         },
         "OOCentralRootPassConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm Linux 'root' password"
+        },
+        "OOCentralT2T3Burst": {
+          "default": "T2/T3 burst mode"
+        },
+        "OODesignerDBName": {
+          "default": "OO Designer database name"
+        },
+        "OODesignerInstanceType": {
+          "default": "OO Designer instance type"
         },
         "OODesignerOOPass": {
-          "default": "Linux 'oo' User Password"
+          "default": "Linux 'oo' user password"
         },
         "OODesignerOOPassConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm Linux 'oo' user password"
         },
         "OODesignerPass": {
-          "default": "Designer Admin Password"
+          "default": "OO Designer 'admin' password"
         },
         "OODesignerPassConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm OO Designer 'admin' password"
         },
         "OODesignerRootPass": {
-          "default": "Linux 'root' Password"
+          "default": "Linux 'root' password"
         },
         "OODesignerRootPassConfirm": {
-          "default": "Confirm Password"
+          "default": "Confirm Linux 'root' password"
         },
         "OODesignerTrigger": {
           "default": "Deploy Workflow Designer"
         },
         "OOKeyPairName": {
-          "default": "OO Key Pair Name"
+          "default": "OO key pair name"
         },
         "OperatorEmail": {
-          "default": "Operator Email"
+          "default": "Operator email"
         },
         "PrivateSubnet1CIDR": {
           "default": "Private Subnet 1 CIDR"
@@ -240,17 +253,14 @@
         "QSS3BucketName": {
           "default": "Quick Start S3 Bucket Name"
         },
-        "S3BucketNameForCluster": {
-          "default": "S3 Bucket Name for OO Cluster"
-        },
         "QSS3KeyPrefix": {
           "default": "Quick Start S3 Key Prefix"
         },
-        "S3KeyPrefixForCluster": {
-          "default": "S3 Key Prefix for OO Cluster"
+        "S3BucketNameForCluster": {
+          "default": "S3 bucket name for OO cluster"
         },
-        "BastionAccessCIDR": {
-          "default": "Allowed Bastion External Access CIDR"
+        "S3KeyPrefixForCluster": {
+          "default": "S3 key name prefix for OO cluster"
         },
         "VPCCIDR": {
           "default": "VPC CIDR"
@@ -262,6 +272,12 @@
     "AvailabilityZones": {
       "Description": "List of Availability Zones to use for the subnets in the VPC. Only two Availability Zones are used for this deployment, and the logical order of your selections is preserved.",
       "Type": "List<AWS::EC2::AvailabilityZone::Name>"
+    },
+    "BastionAccessCIDR": {
+      "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
+      "ConstraintDescription": "The Bastion Host's CIDR IP range must be in the form x.x.x.x/x",
+      "Description": "The CIDR IP range that is permitted to access the bastion hosts. We recommend that you set this value to a trusted IP range.",
+      "Type": "String"
     },
     "BastionInstanceType": {
       "AllowedValues": [
@@ -282,59 +298,24 @@
       "Description": "Amazon EC2 instance type for the bastion instances",
       "Type": "String"
     },
-    "OOCentralDBName": {
-      "AllowedPattern": "^[a-zA-Z0-9]{2,32}$",
-      "ConstraintDescription": "The Central database name must be alphanumeric, can contain uppercases, lowercases and must be between 2 and 32 chars long",
-      "Default": "oocentral",
-      "Description": "The name for OO Central's database (2-32 characters long)",
-      "MaxLength": "32",
-      "MinLength": "2",
-      "Type": "String"
-    },
-    "OOCentralInstanceType": {
-      "AllowedValues": [
-        "t2.medium",
-        "t2.large",
-        "t2.xlarge",
-        "t3.medium",
-        "t3.large",
-        "t3.xlarge",
-        "m5.large",
-        "m5.xlarge",
-        "m5a.large",
-        "m5a.xlarge"
-      ],
-      "ConstraintDescription": "Must be a valid instance type",
-      "Default": "t2.medium",
-      "Description": "Type of EC2 instance for the Central instances",
-      "Type": "String"
-    },
-    "OOCentralNodesSize": {
-      "AllowedPattern": "^([1-9]|[0-1][0])$",
-      "ConstraintDescription": "Must be any number between: 1 and 10",
-      "Default": "2",
-      "Description": "The amount of Central instances (nodes) in the cluster - max 10",
-      "Type": "String"
-    },
-    "OOCentralT2T3Burst": {
-      "AllowedValues": ["standard", "unlimited"],
-      "ConstraintDescription": "If OOCentralInstanceType is either a T2 or T3 instance type, the CPU burst mode must be either 'standard' or 'unlimited'",
-      "Default": "standard",
-      "Description": "For T2/T3 instances only, choose the CPU burstable performance mode",
-      "Type": "String"
-    },
     "CWCentralMonitoring": {
-      "AllowedValues": ["false", "true"],
-      "ConstraintDescription": "The Cloud Watch Monitoring option must be set to either false or true",
+      "AllowedValues": [
+        "false",
+        "true"
+      ],
+      "ConstraintDescription": "The CloudWatch Monitoring option must be set to either false or true",
       "Default": "false",
-      "Description": "Choose True to enable detailed CloudWatch monitoring of the OO Central instances for an additional cost",
+      "Description": "Choose 'true' to enable detailed CloudWatch monitoring of the OO Central instances for an additional cost",
       "Type": "String"
     },
     "CWDesignerMonitoring": {
-      "AllowedValues": ["false", "true"],
+      "AllowedValues": [
+        "false",
+        "true"
+      ],
       "ConstraintDescription": "Must be either false or true",
       "Default": "false",
-      "Description": "Select whether you want Cloud Watch to perform detailed monitoring on the OO Workflow Designer instance (true) or not (false)",
+      "Description": "Choose 'true' to enable detailed CloudWatch monitoring on the OO Workflow Designer instances for an additional cost",
       "Type": "String"
     },
     "DBBackupRetentionPeriod": {
@@ -358,8 +339,8 @@
     },
     "DBMasterPassword": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "The password for the Database master username and it's confirmation must be between 8 and 32 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the database master user",
+      "ConstraintDescription": "The password for the database 'master' user name and it's confirmation must be between 8 and 32 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the database 'master' user",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -368,6 +349,7 @@
     "DBMasterPasswordConfirm": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
       "ConstraintDescription": "The password for the Database master username and it's confirmation must be between 8 and 32 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the database 'master' user",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -375,15 +357,18 @@
     },
     "DBMasterUsername": {
       "AllowedPattern": "^[a-zA-Z0-9]{2,32}$",
-      "ConstraintDescription": "The Database Master Username must be between alphanumeric, can contain uppercases, lowercases and must be between 2 and 32 chars long",
+      "ConstraintDescription": "The database 'master' user name must be between alphanumeric, can contain uppercases, lowercases and must be between 2 and 32 chars long",
       "Default": "oodbadmin",
-      "Description": "The name of the database master user",
+      "Description": "The name of the database 'master' user",
       "MaxLength": "32",
       "MinLength": "2",
       "Type": "String"
     },
     "DBMultiAZ": {
-      "AllowedValues": [false, true],
+      "AllowedValues": [
+        false,
+        true
+      ],
       "Default": false,
       "Description": "Choose 'true' to deploy the database across multiple Availability Zones",
       "Type": "String"
@@ -407,35 +392,27 @@
       "MinValue": "20",
       "Type": "Number"
     },
-    "OODesignerDBName": {
-      "AllowedPattern": "^$|([a-zA-Z0-9]{2,32}$)",
-      "ConstraintDescription": "The Designer database name must be alphanumeric, can contain uppercases, lowercases and must be between 2 and 32 chars long",
-      "Default": "oodesigner",
-      "Description": "The name for OO Workflow Designer's database (2-32 characters long). Ignore this parameter if you do not want to deploy OO Workflow Designer",
-      "Type": "String"
-    },
-    "OODesignerInstanceType": {
-      "AllowedValues": ["t2.medium", "t3.medium", "m5.large", "m5a.large"],
-      "ConstraintDescription": "Must contain valid instance type",
-      "Default": "t2.medium",
-      "Description": "Type of EC2 instance for the Designer instance",
+    "ELBAccessCIDR": {
+      "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
+      "ConstraintDescription": "The load balancer CIDR block parameter must be in the form x.x.x.x/x",
+      "Description": "The CIDR IP range that is permitted to access the load balancer. We recommend that you set this value to a trusted IP range. If you have chosen the 'internal' Load Balancer scheme, then the IP range you enter here must exist in your VPC",
       "Type": "String"
     },
     "ELBScheme": {
-      "AllowedValues": ["internal", "internet-facing"],
-      "ConstraintDescription": "The Load Balancer scheme must be either 'internet-facing' or 'internal'",
+      "AllowedValues": [
+        "internal",
+        "internet-facing"
+      ],
+      "ConstraintDescription": "The load balancer scheme must be either 'internet-facing' or 'internal'",
       "Default": "internet-facing",
-      "Description": "Choose the Load Balancer's exposure: internet-facing or internal",
-      "Type": "String"
-    },
-    "ELBAccessCIDR": {
-      "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
-      "ConstraintDescription": "The Load Balancer CIDR block parameter must be in the form x.x.x.x/x",
-      "Description": "The CIDR IP range that is permitted to access the Elastic Load Balancer. We recommend that you set this value to a trusted IP range. If you deploy the OO stack in a new VPC, and the Load Balancer's scheme is set to 'internal', then make sure that the IP range you configure here is within the IP range of the new VPC's subnets. Example: set this range to the IP range of the two public subnets defined in the Network Configuration section",
+      "Description": "Choose 'internal' to prevent assigning the load balancer a public IP address. The DNS name of an internal load balancer will be publically resolvable to its private IP address.",
       "Type": "String"
     },
     "LicenseAgreement": {
-      "AllowedValues": ["-", "I agree"],
+      "AllowedValues": [
+        "-",
+        "I agree"
+      ],
       "Default": "-",
       "Description": "I have read and agree to the terms of the End User License Agreement for Micro Focus Operations Orchestration (https://www.microfocus.com/media/documentation/micro_focus_end_user_license_agreement.pdf).",
       "Type": "String"
@@ -443,20 +420,57 @@
     "LinuxBastionKeyPairName": {
       "AllowedPattern": ".+",
       "ConstraintDescription": "The Key Pair Name For Bastion Hosts that will be used for SSH access to the Linux Bastion host must not be empty",
-      "Description": "The name of an existing public/private key pair, which allows you to securely connect to your linux bastion instance after it launches",
+      "Description": "The name of an existing public/private key pair, which allows you to securely connect to your Linux bastion instance after it launches",
       "Type": "AWS::EC2::KeyPair::KeyName"
     },
     "NotificationTrigger": {
-      "AllowedValues": ["false", "true"],
+      "AllowedValues": [
+        "false",
+        "true"
+      ],
       "ConstraintDescription": "E-mail notifications parameter must be set to either 'true' or 'false'",
       "Default": "true",
       "Description": "Choose 'false' if you don't want to receive e-mail notifications about failed auto scaling operations",
       "Type": "String"
     },
+    "OOCentralDBName": {
+      "AllowedPattern": "^[a-zA-Z0-9]{2,32}$",
+      "ConstraintDescription": "The OO Central database name must be alphanumeric, can contain uppercases, lowercases and must be between 2 and 32 chars long",
+      "Default": "oocentral",
+      "Description": "The name for OO Central's database (2-32 characters long)",
+      "MaxLength": "32",
+      "MinLength": "2",
+      "Type": "String"
+    },
+    "OOCentralInstanceType": {
+      "AllowedValues": [
+        "t2.medium",
+        "t2.large",
+        "t2.xlarge",
+        "t3.medium",
+        "t3.large",
+        "t3.xlarge",
+        "m5.large",
+        "m5.xlarge",
+        "m5a.large",
+        "m5a.xlarge"
+      ],
+      "ConstraintDescription": "Must be a valid instance type",
+      "Default": "t2.medium",
+      "Description": "Type of EC2 instance for the OO Central instances",
+      "Type": "String"
+    },
+    "OOCentralNodesSize": {
+      "AllowedPattern": "^([1-9]|[0-1][0])$",
+      "ConstraintDescription": "Must be any number between: 1 and 10",
+      "Default": "2",
+      "Description": "The amount of OO Central instances (nodes) in the cluster - max 10",
+      "Type": "String"
+    },
     "OOCentralOOPass": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "Central Instance - The passwords for the 'oo' linux user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the linux user 'oo' inside the Central instances. This user has the ownership of OO files and processes. The password must be different than the password of the Linux root user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the Linux 'oo' user inside the OO Central instances. This user has the ownership of OO files and processes. The password must be different than the password of the Linux root user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -464,7 +478,8 @@
     },
     "OOCentralOOPassConfirm": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "Central Instance - The passwords for the 'oo' linux user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'oo' user inside the OO Central instances. This user has the ownership of OO files and processes. The password must be different than the password of the Linux root user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -482,6 +497,7 @@
     "OOCentralPassConfirm": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
       "ConstraintDescription": "OO Central administrative password and it's confirmation must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the OO Central administrative user 'admin'. Must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -489,8 +505,8 @@
     },
     "OOCentralRootPass": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "Central Instance - The passwords for the 'root' linux user and it's confirmation value must be different than the oo user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the linux user 'root' inside the Central instances - Must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the Linux 'oo' user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the Linux 'root' user inside the OO Central instances - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -498,53 +514,89 @@
     },
     "OOCentralRootPassConfirm": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "Central Instance - The passwords for the 'root' linux user and it's confirmation value must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'root' user inside the OO Central instances - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
       "Type": "String"
     },
+    "OOCentralT2T3Burst": {
+      "AllowedValues": [
+        "standard",
+        "unlimited"
+      ],
+      "ConstraintDescription": "If OOCentralInstanceType is either a T2 or T3 instance type, the CPU burst mode must be either 'standard' or 'unlimited'",
+      "Default": "standard",
+      "Description": "For T2/T3 instances only, choose the CPU burstable performance mode",
+      "Type": "String"
+    },
+    "OODesignerDBName": {
+      "AllowedPattern": "^$|([a-zA-Z0-9]{2,32}$)",
+      "ConstraintDescription": "The OO Workflow Designer database name must be alphanumeric, can contain uppercases, lowercases and must be between 2 and 32 chars long",
+      "Default": "oodesigner",
+      "Description": "The name for OO Workflow Designer's database (2-32 characters long). Ignore this parameter if you do not want to deploy OO Workflow Designer",
+      "Type": "String"
+    },
+    "OODesignerInstanceType": {
+      "AllowedValues": [
+        "t2.medium",
+        "t3.medium",
+        "m5.large",
+        "m5a.large"
+      ],
+      "ConstraintDescription": "Must contain valid instance type",
+      "Default": "t2.medium",
+      "Description": "EC2 instance type for OO Workflow Designer",
+      "Type": "String"
+    },
     "OODesignerOOPass": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Desiner Instance - The passwords for the 'oo' linux user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the linux user 'oo' inside the Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux root user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "Workflow Designer instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the Linux 'root' user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the Linux 'oo' user inside the Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerOOPassConfirm": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Desiner Instance - The passwords for the 'oo' linux user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "Workflow Designer instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'oo' user inside the Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerPass": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "OO Workflow Designer administrative password and it's confirmation must be different than Central admin password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the OO Designer administrative user 'admin' - Must be different than the Central admin password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Workflow Designer administrative password and it's confirmation must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the OO Designer administrative user 'admin' - Must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerPassConfirm": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "OO Workflow Designer administrative password and it's confirmation must be different than Central admin password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Workflow Designer administrative password and it's confirmation must be different than the OOCentral admin password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the OO Designer administrative user 'admin' - Must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerRootPass": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Designer Instance - The passwords for the 'root' linux user and it's confirmation value must be different than the oo user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the linux user 'root' inside the Designer instance - Must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "Workflow Designer Instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the oo user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the Linux 'root' user inside the Designer instance - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerRootPassConfirm": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Designer Instance - The passwords for the 'root' linux user and it's confirmation value must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "Workflow Designer Instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'root' user inside the Designer instance - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerTrigger": {
-      "AllowedValues": ["false", "true"],
+      "AllowedValues": [
+        "false",
+        "true"
+      ],
       "ConstraintDescription": "The 'Deploy Workflow Designer' option must be sset to either 'true' or 'false'",
       "Default": "true",
       "Description": "Choose 'false' to not deploy the OO Workflow Designer instance. If you choose 'false', then all parameters related to Workflow Designer are ignored",
@@ -597,12 +649,6 @@
       "Description": "S3 bucket name for the Quick Start assets. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
       "Type": "String"
     },
-    "S3BucketNameForCluster": {
-      "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",
-      "ConstraintDescription": "The S3 bucket for OO Cluster name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
-      "Description": "S3 bucket name that will be used by OO Central cluster instances to store the encryption keys. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
-      "Type": "String"
-    },
     "QSS3KeyPrefix": {
       "AllowedPattern": "^$|^([0-9a-zA-Z-]+/)*$",
       "ConstraintDescription": "Quick Start key prefix can either empty or follow this constraint: can include numbers, lowercase letters, uppercase letters, forward slashes (/), hyphens (-), and must end in a forward slash (/).",
@@ -610,16 +656,16 @@
       "Description": "S3 key prefix for the Quick Start assets. Quick Start key prefix can either be empty or follow this constraint: can include numbers, lowercase letters, uppercase letters, forward slashes (/), hyphens (-), and must end with a forward slash (/).",
       "Type": "String"
     },
+    "S3BucketNameForCluster": {
+      "AllowedPattern": "^[0-9a-zA-Z]+([0-9a-zA-Z-]*[0-9a-zA-Z])*$",
+      "ConstraintDescription": "The S3 bucket for OO Cluster name can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
+      "Description": "S3 bucket name that will be used by OO Central cluster instances to store the encryption keys. This string can include numbers, lowercase letters, uppercase letters, and hyphens (-). It cannot start or end with a hyphen (-).",
+      "Type": "String"
+    },
     "S3KeyPrefixForCluster": {
       "AllowedPattern": "^$|^([0-9a-zA-Z-]+/)*$",
       "ConstraintDescription": "The S3 key prefix of the S3 bucket for OO Cluster can either be empty or follow this constraint: can include numbers, lowercase letters, uppercase letters, forward slashes (/), hyphens (-), and must end in a forward slash (/).",
-      "Description": "S3 key prefix that will be used by OO Central cluster instances to store the encryption files. This parameter can either be empty or follow this constraint: can include numbers, lowercase letters, uppercase letters, hyphens (-), and a forward slash (/).",
-      "Type": "String"
-    },
-    "BastionAccessCIDR": {
-      "AllowedPattern": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))$",
-      "ConstraintDescription": "The Bastion Host's CIDR IP range must be in the form x.x.x.x/x",
-      "Description": "The CIDR IP range that is permitted to access the bastion hosts. We recommend that you set this value to a trusted IP range.",
+      "Description": "S3 key prefix for the OO Central cluster instances to store the encryption files. The key prefix can either be empty or follow this constraint: can include numbers, lowercase letters, uppercase letters, forward slashes (/), hyphens (-), and must end with a forward slash (/).",
       "Type": "String"
     },
     "VPCCIDR": {
@@ -672,7 +718,9 @@
         {
           "Assert": {
             "Fn::Contains": [
-              ["I agree"],
+              [
+                "I agree"
+              ],
               {
                 "Ref": "LicenseAgreement"
               }
@@ -722,7 +770,7 @@
               }
             ]
           },
-          "AssertDescription": "Central admin pass and it's confirmation do not match"
+          "AssertDescription": "The OO Central 'admin' password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -735,7 +783,7 @@
               }
             ]
           },
-          "AssertDescription": "Central instance - password for oo linux user and it's confirmation do not match"
+          "AssertDescription": "The OO Central Linux 'oo' user password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -748,7 +796,7 @@
               }
             ]
           },
-          "AssertDescription": "Central instance - password for root linux user and it's confirmation do not match"
+          "AssertDescription": "The OO Central Linux 'root' user password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -765,7 +813,7 @@
               }
             ]
           },
-          "AssertDescription": "Password of 'oo' and 'root' linux users in Central instances must be different"
+          "AssertDescription": "The OO Central 'oo' and Linux 'root' user passwords must be different"
         },
         {
           "Assert": {
@@ -804,7 +852,7 @@
               }
             ]
           },
-          "AssertDescription": "Central Instance - Cannot choose 'unlimited' for CPU Burst Mode if instance type is not a T2 or T3 class"
+          "AssertDescription": "You cannot choose 'unlimited' for CPU burst mode if the OO Central instance type is not a T2 or T3 class"
         }
       ]
     },
@@ -864,7 +912,7 @@
               }
             ]
           },
-          "AssertDescription": "Workflow Designer admin password and it's confirmation do not match"
+          "AssertDescription": "The Workflow Designer 'admin' password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -877,7 +925,7 @@
               }
             ]
           },
-          "AssertDescription": "Workflow Designer - password for oo linux user and it's confirmation do not match"
+          "AssertDescription": "The Workflow Designer Linux 'oo' user password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -890,7 +938,7 @@
               }
             ]
           },
-          "AssertDescription": "Workflow Designer - password for root linux user and it's confirmation do not match"
+          "AssertDescription": "The Workflow Designer Linux 'root' user password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -907,7 +955,7 @@
               }
             ]
           },
-          "AssertDescription": "OO Central Admin Password must be different than the OO Workflow Designer Admin Password"
+          "AssertDescription": "The OO Central 'admin' password must be different than the OO Workflow Designer 'admin' password"
         }
       ]
     },
@@ -917,7 +965,10 @@
           "Assert": {
             "Fn::EachMemberIn": [
               {
-                "Fn::ValueOfAll": ["AWS::EC2::Subnet::Id", "VpcId"]
+                "Fn::ValueOfAll": [
+                  "AWS::EC2::Subnet::Id",
+                  "VpcId"
+                ]
               },
               {
                 "Fn::RefAll": "AWS::EC2::VPC::Id"
@@ -992,10 +1043,16 @@
             "Ref": "LinuxBastionKeyPairName"
           },
           "PublicSubnet1ID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.PublicSubnet1ID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.PublicSubnet1ID"
+            ]
           },
           "PublicSubnet2ID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.PublicSubnet2ID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.PublicSubnet2ID"
+            ]
           },
           "QSS3BucketName": {
             "Ref": "QSS3BucketName"
@@ -1007,7 +1064,10 @@
             "Ref": "BastionAccessCIDR"
           },
           "VPCID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.VPCID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.VPCID"
+            ]
           }
         }
       }
@@ -1125,22 +1185,37 @@
             "Ref": "OOKeyPairName"
           },
           "OOSSHAccessSGID": {
-            "Fn::GetAtt": ["BastionStack", "Outputs.BastionSecurityGroupID"]
+            "Fn::GetAtt": [
+              "BastionStack",
+              "Outputs.BastionSecurityGroupID"
+            ]
           },
           "OperatorEmail": {
             "Ref": "OperatorEmail"
           },
           "PrivateSubnet1ID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.PrivateSubnet1AID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.PrivateSubnet1AID"
+            ]
           },
           "PrivateSubnet2ID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.PrivateSubnet2AID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.PrivateSubnet2AID"
+            ]
           },
           "PublicSubnet1ID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.PublicSubnet1ID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.PublicSubnet1ID"
+            ]
           },
           "PublicSubnet2ID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.PublicSubnet2ID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.PublicSubnet2ID"
+            ]
           },
           "S3BucketNameForCluster": {
             "Ref": "S3BucketNameForCluster"
@@ -1149,7 +1224,10 @@
             "Ref": "S3KeyPrefixForCluster"
           },
           "VPCID": {
-            "Fn::GetAtt": ["VPCStack", "Outputs.VPCID"]
+            "Fn::GetAtt": [
+              "VPCStack",
+              "Outputs.VPCID"
+            ]
           }
         }
       }
@@ -1159,20 +1237,29 @@
     "OOCentralCluster": {
       "Description": "OO Central Cluster",
       "Value": {
-        "Fn::GetAtt": ["OOStack", "Outputs.OOCentralCluster"]
+        "Fn::GetAtt": [
+          "OOStack",
+          "Outputs.OOCentralCluster"
+        ]
       }
     },
     "OOWorkFlowDesigner": {
       "Description": "OO Workflow Designer",
       "Value": {
-        "Fn::GetAtt": ["OOStack", "Outputs.OOWorkflowDesigner"]
+        "Fn::GetAtt": [
+          "OOStack",
+          "Outputs.OOWorkflowDesigner"
+        ]
       },
       "Condition": "CreateDesigner"
     },
     "IDMAdmin": {
       "Description": "OO Workflow Designer Identity Management Server",
       "Value": {
-        "Fn::GetAtt": ["OOStack", "Outputs.IDMAdmin"]
+        "Fn::GetAtt": [
+          "OOStack",
+          "Outputs.IDMAdmin"
+        ]
       },
       "Condition": "CreateDesigner"
     }
