@@ -14,7 +14,7 @@
         },
         {
           "Label": {
-            "default": "Network Configuration"
+            "default": "Network configuration"
           },
           "Parameters": [
             "VPCID",
@@ -26,7 +26,7 @@
         },
         {
           "Label": {
-            "default": "Load Balancer Configuration"
+            "default": "Load balancer configuration"
           },
           "Parameters": [
             "ELBScheme",
@@ -35,7 +35,7 @@
         },
         {
           "Label": {
-            "default": "Database Instance Configuration"
+            "default": "Database instance configuration"
           },
           "Parameters": [
             "DBMultiAZ",
@@ -53,7 +53,7 @@
         },
         {
           "Label": {
-            "default": "OO EC2 Instances Configuration"
+            "default": "OO EC2 instances configuration"
           },
           "Parameters": [
             "OOKeyPairName",
@@ -62,7 +62,7 @@
         },
         {
           "Label": {
-            "default": "OO Central Cluster Configuration"
+            "default": "OO Central cluster configuration"
           },
           "Parameters": [
             "OOCentralInstanceType",
@@ -83,7 +83,7 @@
         },
         {
           "Label": {
-            "default": "OO Workflow Designer Instance Configuration"
+            "default": "OO Workflow Designer instance configuration"
           },
           "Parameters": [
             "OODesignerTrigger",
@@ -103,7 +103,7 @@
           "default": "OO Central CloudWatch monitoring"
         },
         "CWDesignerMonitoring": {
-          "default": "OO Designer CloudWatch monitoring"
+          "default": "OO Workflow Designer CloudWatch monitoring"
         },
         "DBBackupRetentionPeriod": {
           "default": "Database backup retention"
@@ -175,10 +175,10 @@
           "default": "T2/T3 burst mode"
         },
         "OODesignerDBName": {
-          "default": "OO Designer database name"
+          "default": "OO Workflow Designer database name"
         },
         "OODesignerInstanceType": {
-          "default": "OO Designer instance type"
+          "default": "OO Workflow Designer instance type"
         },
         "OODesignerOOPass": {
           "default": "Linux 'oo' user password"
@@ -187,10 +187,10 @@
           "default": "Confirm Linux 'oo' user password"
         },
         "OODesignerPass": {
-          "default": "OO Designer 'admin' password"
+          "default": "OO Workflow Designer 'admin' password"
         },
         "OODesignerPassConfirm": {
-          "default": "Confirm OO Designer 'admin' password"
+          "default": "Confirm OO Workflow Designer 'admin' password"
         },
         "OODesignerRootPass": {
           "default": "Linux 'root' password"
@@ -199,7 +199,7 @@
           "default": "Confirm Linux 'root' password"
         },
         "OODesignerTrigger": {
-          "default": "Deploy Workflow Designer"
+          "default": "Deploy the OO Workflow Designer"
         },
         "OOKeyPairName": {
           "default": "OO key pair name"
@@ -240,7 +240,7 @@
         "false",
         "true"
       ],
-      "ConstraintDescription": "The CloudWatch Monitoring option must be set to either false or true",
+      "ConstraintDescription": "The CloudWatch monitoring option must be set to either false or true",
       "Default": "false",
       "Description": "Choose 'true' to enable detailed CloudWatch monitoring of the OO Central instances for an additional cost",
       "Type": "String"
@@ -342,7 +342,7 @@
       ],
       "ConstraintDescription": "The load balancer scheme must be either 'internet-facing' or 'internal'",
       "Default": "internet-facing",
-      "Description": "Choose 'internal' to prevent assigning the load balancer a public IP address. The DNS name of an internal load balancer will be publically resolvable to its private IP address.",
+      "Description": "Choose 'internal' to prevent assigning the load balancer a public IP address. The DNS name of an internal load balancer will be publicly resolvable to its private IP address.",
       "Type": "String"
     },
     "LicenseAgreement": {
@@ -400,7 +400,7 @@
     },
     "OOCentralOOPass": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the 'root' user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "Description": "Password for the Linux 'oo' user inside the OO Central instances. This user has the ownership of OO files and processes. The password must be different than the password of the Linux root user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
@@ -409,8 +409,8 @@
     },
     "OOCentralOOPassConfirm": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
-      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "The password confirmation for the Linux 'oo' user inside the OO Central instances. This user has the ownership of OO files and processes. The password must be different than the password of the Linux root user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Central instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the 'root' user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'oo' user inside the OO Central instances. This user has the ownership of OO files and processes. The password must be different than the password of the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -419,7 +419,7 @@
     "OOCentralPass": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
       "ConstraintDescription": "OO Central administrative password must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the OO Central administrative user 'admin'. Must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the OO Central administrative 'admin' user. Must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -428,7 +428,7 @@
     "OOCentralPassConfirm": {
       "AllowedPattern": "^(?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*",
       "ConstraintDescription": "OO Central administrative password and it's confirmation must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "The password confirmation for the OO Central administrative user 'admin'. Must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the OO Central administrative 'admin' user. Must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "MaxLength": "32",
       "MinLength": "8",
       "NoEcho": "true",
@@ -483,43 +483,43 @@
     },
     "OODesignerOOPass": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Designer instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the Linux 'root' user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the Linux 'oo' user inside the Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Workflow Designer instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the Linux 'root' user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the Linux 'oo' user inside the OO Workflow Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerOOPassConfirm": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Designer instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "The password confirmation for the Linux 'oo' user inside the Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Workflow Designer instance - The passwords for the Linux 'oo' user and it's confirmation value must be different than the root user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'oo' user inside the OO Workflow Designer instance. This user has the ownership of OO files and processes. The password must be different than the password for the Linux 'root' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerPass": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
       "ConstraintDescription": "OO Workflow Designer administrative password and it's confirmation must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the OO Designer administrative user 'admin' - Must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the OO Workflow Designer administrative 'admin' user. The password must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerPassConfirm": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
       "ConstraintDescription": "OO Workflow Designer administrative password and it's confirmation must be different than the OOCentral admin password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "The password confirmation for the OO Designer administrative user 'admin' - Must be different than the OO Central 'admin' password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The confirmation password for the OO Workflow Designer administrative 'admin' user",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerRootPass": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Designer Instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the oo user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "Password for the Linux 'root' user inside the Designer instance - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Workflow Designer instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the oo user password, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "Password for the Linux 'root' user inside the OO Workflow Designer instance - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
     "OODesignerRootPassConfirm": {
       "AllowedPattern": "^$|((?=.{8,32}$)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!#$%^&*()+\\-={}|;:,.<>?]).*)",
-      "ConstraintDescription": "Workflow Designer Instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
-      "Description": "The password confirmation for the Linux 'root' user inside the Designer instance - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "ConstraintDescription": "OO Workflow Designer instance - The passwords for the Linux 'root' user and it's confirmation value must be different than the password for the Linux oo user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
+      "Description": "The password confirmation for the Linux 'root' user inside the OO Workflow Designer instance - Must be different than the password for the Linux 'oo' user, must be between 8 and 12 chars long, alphanumeric, can contain uppercases, lowercases, and at least one of the following characters: !#$%^&*()+\\-={}|;:,.<>?",
       "NoEcho": "true",
       "Type": "String"
     },
@@ -528,15 +528,15 @@
         "false",
         "true"
       ],
-      "ConstraintDescription": "The 'Deploy Workflow Designer' option must be sset to either 'true' or 'false'",
+      "ConstraintDescription": "The 'Deploy the OO Workflow Designer' option must be set to either 'true' or 'false'",
       "Default": "true",
-      "Description": "Choose 'false' to not deploy the OO Workflow Designer instance. If you choose 'false', then all parameters related to Workflow Designer are ignored",
+      "Description": "Choose 'false' to not deploy the OO Workflow Designer instance. If you choose 'false', then all parameters related to OO Workflow Designer are ignored",
       "Type": "String"
     },
     "OOKeyPairName": {
       "AllowedPattern": ".+",
       "ConstraintDescription": "The OO Key Pair Name that will be used for SSH access to OO instances must not be empty",
-      "Description": "Name of an existing EC2 key pair for accessing OO Central and Workflow Designer EC2 instances",
+      "Description": "Name of an existing EC2 key pair for accessing OO Central and OO Workflow Designer EC2 instances",
       "Type": "AWS::EC2::KeyPair::KeyName"
     },
     "OOSSHAccessSGID": {
@@ -550,11 +550,11 @@
       "Type": "String"
     },
     "PrivateSubnet1ID": {
-      "Description": "ID of the private subnet 1 in Availability Zone 1 for OO Central cluster and Workflow Designer (e.g., subnet-a0246dcd)",
+      "Description": "ID of the private subnet 1 in Availability Zone 1 for OO Central cluster and OO Workflow Designer (e.g., subnet-a0246dcd)",
       "Type": "AWS::EC2::Subnet::Id"
     },
     "PrivateSubnet2ID": {
-      "Description": "ID of the private subnet 2 in Availability Zone 2 for OO Central cluster and Workflow Designer (e.g., subnet-b1f432cd)",
+      "Description": "ID of the private subnet 2 in Availability Zone 2 for OO Central cluster and OO Workflow Designer (e.g., subnet-b1f432cd)",
       "Type": "AWS::EC2::Subnet::Id"
     },
     "PublicSubnet1ID": {
@@ -805,7 +805,7 @@
               }
             ]
           },
-          "AssertDescription": "If you choose to deploy Workflow Designer, you must not leave any of the following required Workflow Designer parameters empty: Designer Admin Pass and it's confirmation, Linux oo user password and it's confirmation, Linux root user password and it's confirmation and Workflow Designer database name"
+          "AssertDescription": "If you choose to deploy OO Workflow Designer, you must not leave any of the following required OO Workflow Designer parameters empty: OO Workflow Designer 'admin' user pass and it's confirmation, Linux 'oo' user password and it's confirmation, Linux 'root' user password and it's confirmation and OO Workflow Designer database name"
         },
         {
           "Assert": {
@@ -818,7 +818,7 @@
               }
             ]
           },
-          "AssertDescription": "The Workflow Designer 'admin' password and it's confirmation do not match"
+          "AssertDescription": "The OO Workflow Designer 'admin' password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -831,7 +831,7 @@
               }
             ]
           },
-          "AssertDescription": "The Workflow Designer Linux 'oo' user password and it's confirmation do not match"
+          "AssertDescription": "The OO Workflow Designer Linux 'oo' user password and it's confirmation do not match"
         },
         {
           "Assert": {
@@ -844,7 +844,7 @@
               }
             ]
           },
-          "AssertDescription": "The Workflow Designer Linux 'root' user password and it's confirmation do not match"
+          "AssertDescription": "The OO Workflow Designer Linux 'root' user password and it's confirmation do not match"
         },
         {
           "Assert": {
