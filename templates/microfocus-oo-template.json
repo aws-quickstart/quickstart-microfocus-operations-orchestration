@@ -14,7 +14,7 @@
         },
         {
           "Label": {
-            "default": "Network configuration"
+            "default": "VPC network configuration"
           },
           "Parameters": [
             "VPCID",
@@ -205,22 +205,22 @@
           "default": "OO key pair name"
         },
         "OOSSHAccessSGID": {
-          "default": "SSH Access"
+          "default": "SSH access"
         },
         "OperatorEmail": {
           "default": "Operator email"
         },
         "PrivateSubnet1ID": {
-          "default": "Private Subnet 1 ID"
+          "default": "Private subnet 1 ID"
         },
         "PrivateSubnet2ID": {
-          "default": "Private Subnet 2 ID"
+          "default": "Private subnet 2 ID"
         },
         "PublicSubnet1ID": {
-          "default": "Public Subnet 1 ID"
+          "default": "Public subnet 1 ID"
         },
         "PublicSubnet2ID": {
-          "default": "Public Subnet 2 ID"
+          "default": "Public subnet 2 ID"
         },
         "S3BucketNameForCluster": {
           "default": "S3 bucket name for OO cluster"
