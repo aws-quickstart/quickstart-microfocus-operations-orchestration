@@ -14,7 +14,7 @@
         },
         {
           "Label": {
-            "default": "Network configuration"
+            "default": "VPC network configuration"
           },
           "Parameters": [
             "AvailabilityZones",
@@ -239,16 +239,16 @@
           "default": "Operator email"
         },
         "PrivateSubnet1CIDR": {
-          "default": "Private Subnet 1 CIDR"
+          "default": "Private subnet 1 CIDR"
         },
         "PrivateSubnet2CIDR": {
-          "default": "Private Subnet 2 CIDR"
+          "default": "Private subnet 2 CIDR"
         },
         "PublicSubnet1CIDR": {
-          "default": "Public Subnet 1 CIDR"
+          "default": "Public subnet 1 CIDR"
         },
         "PublicSubnet2CIDR": {
-          "default": "Public Subnet 2 CIDR"
+          "default": "Public subnet 2 CIDR"
         },
         "QSS3BucketName": {
           "default": "Quick Start S3 bucket name"
