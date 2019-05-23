@@ -2641,8 +2641,8 @@
   "Mappings": {
     "AWSAMIRegionMap": {
       "AMI": {
-        "AMZLNX1Central": "Amazon Linux 1 HVM with OO Central",
-        "AMZLNX1Designer": "Amazon Linux 1 HVM with OO Workflow Designer"
+        "AMZLNX1Central": "[QS-DEV]MicroFocus-QuickStart-OO-Central-2018.12.02",
+        "AMZLNX1Designer": "[QS-DEV]MicroFocus-QuickStart-OO-Workflow-Designer-2018.12.02"
       },
       "ap-northeast-1": {
         "AMZLNX1Central": "ami-0fb9d2d56ebad406c",
