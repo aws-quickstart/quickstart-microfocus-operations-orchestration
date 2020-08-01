@@ -1035,7 +1035,6 @@
           "Fn::Sub": "https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}submodules/quickstart-linux-bastion/templates/linux-bastion.template"
         },
         "Parameters": {
-          "BastionAMIOS": "Amazon-Linux-HVM",
           "BastionInstanceType": {
             "Ref": "BastionInstanceType"
           },
